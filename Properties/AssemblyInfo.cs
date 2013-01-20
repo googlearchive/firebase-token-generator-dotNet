@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("FirebaseTokenGenerator")]
-[assembly: AssemblyDescription("Firebase Authentication Token Generator for .Net")]
+[assembly: AssemblyDescription("Firebase Token Generator for .Net")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Firebase")]
 [assembly: AssemblyProduct("FirebaseTokenGenerator")]
