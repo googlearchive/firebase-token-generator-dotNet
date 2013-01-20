@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2012 for Windows Desktop
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirebaseTokenGenerator", "FirebaseTokenGenerator.csproj", "{EDF6D0EC-8015-463C-9B3B-034EF0F897A9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EDF6D0EC-8015-463C-9B3B-034EF0F897A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDF6D0EC-8015-463C-9B3B-034EF0F897A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDF6D0EC-8015-463C-9B3B-034EF0F897A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDF6D0EC-8015-463C-9B3B-034EF0F897A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F9A8E2F-D355-4121-947D-A38DC33E7CBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F9A8E2F-D355-4121-947D-A38DC33E7CBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F9A8E2F-D355-4121-947D-A38DC33E7CBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F9A8E2F-D355-4121-947D-A38DC33E7CBC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>FirebaseTokenGenerator</id>
+    <version>1.2.0</version>
+    <title>Firebase Token Generator</title>
+    <authors>Michael Lehenbauer</authors>
+    <owners>Firebase</owners>
+    <licenseUrl>http://firebase.mit-license.org/</licenseUrl>
+    <projectUrl>https://github.com/firebase/firebase-token-generator-dotNet</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Firebase Token Generator for .Net</description>
+    <copyright>Copyright 2013</copyright>
+    <tags>firebase token jwt security authentication</tags>
+    <dependencies>
+      <dependency id="JWT" version="1.2" />
+    </dependencies>
+  </metadata>
+</package>
