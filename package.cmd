@@ -1,2 +1,2 @@
 nuget update -self
-nuget pack FirebaseTokenGenerator.csproj 
+nuget pack FirebaseTokenGenerator\FirebaseTokenGenerator.csproj 

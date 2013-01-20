@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 2012 for Windows Desktop
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirebaseTokenGenerator", "FirebaseTokenGenerator.csproj", "{EDF6D0EC-8015-463C-9B3B-034EF0F897A9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirebaseTokenGenerator", "FirebaseTokenGenerator\FirebaseTokenGenerator.csproj", "{EDF6D0EC-8015-463C-9B3B-034EF0F897A9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
