@@ -41,14 +41,14 @@ namespace Firebase
         {
             var claims = new Dictionary<string, object>();
             claims["v"] = TOKEN_VERSION;
-            claims["iat"] = millisecondsSinceEpoch(DateTime.Now);
+            claims["iat"] = secondsSinceEpoch(DateTime.Now);
             claims["d"] = data;
 
             // Handle options.
             if (options.expires.HasValue)
-                claims["exp"] = millisecondsSinceEpoch(options.expires.Value);
+                claims["exp"] = secondsSinceEpoch(options.expires.Value);
             if (options.notBefore.HasValue)
-                claims["nbf"] = millisecondsSinceEpoch(options.notBefore.Value);
+                claims["nbf"] = secondsSinceEpoch(options.notBefore.Value);
             if (options.admin)
                 claims["admin"] = true;
             if (options.debug)
@@ -62,10 +62,10 @@ namespace Firebase
             return JWT.JsonWebToken.Encode(claims, this._firebaseSecret, JWT.JwtHashAlgorithm.HS256);
         }
 
-        private static long millisecondsSinceEpoch(DateTime dt)
+        private static long secondsSinceEpoch(DateTime dt)
         {
             TimeSpan t = dt.ToUniversalTime() - new DateTime(1970, 1, 1);
-            return (long)t.TotalMilliseconds;
+            return (long)t.TotalSeconds;
         }
     }
 }
