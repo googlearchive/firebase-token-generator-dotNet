@@ -2,7 +2,12 @@
 Library for generating Firebase authentication tokens from .Net.
 
 ## Installation
-The easiest way to install is via NuGet.  See [here](https://nuget.org/packages/FirebaseTokenGenerator).  Else, you can download and compile it yourself.
+The easiest way to install is via [NuGet](https://nuget.org/packages/FirebaseTokenGenerator).  Just search 
+for FirebaseTokenGenerator in NuGet or install it via the Package Manager Console:
+
+    PM> Install-Package FirebaseTokenGenerator
+
+You can also download the source and compile it yourself, of course!
 
 ## Usage
 To generate a token with an arbitrary auth payload:
