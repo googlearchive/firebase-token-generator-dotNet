@@ -26,3 +26,7 @@ You can also specify custom options via a second argument to CreateToken.  For e
     string token = tokenGenerator.CreateToken(null, new Firebase.TokenOptions(admin: true));
 
 See the [Firebase Authentication Docs](https://www.firebase.com/docs/security/authentication.html) for more information about authentication tokens.
+
+License
+-------
+[MIT](http://firebase.mit-license.org)
