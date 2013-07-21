@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
@@ -39,6 +40,11 @@ namespace Firebase
         /// <returns>The auth token.</returns>
         public string CreateToken(object data, TokenOptions options)
         {
+            if (!options.admin && !options.debug && isEmpty(data))
+            {
+                throw new Exception("data is empty and no options are set.  This token will have no effect on Firebase.");
+            }
+
             var claims = new Dictionary<string, object>();
             claims["v"] = TOKEN_VERSION;
             claims["iat"] = secondsSinceEpoch(DateTime.Now);
@@ -66,6 +72,23 @@ namespace Firebase
         {
             TimeSpan t = dt.ToUniversalTime() - new DateTime(1970, 1, 1);
             return (long)t.TotalSeconds;
+        }
+
+        private static bool isEmpty(object data)
+        {
+            if (data == null)
+            {
+                return true;
+            }
+            else
+            {
+                var enumerable = data as IEnumerable;
+                if (!enumerable.GetEnumerator().MoveNext())
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
