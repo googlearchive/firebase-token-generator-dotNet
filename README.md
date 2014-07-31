@@ -1,32 +1,79 @@
-# .Net Firebase Token Generator
-Library for generating Firebase authentication tokens from .Net.
+# Firebase Token Generator - .NET
+
+[Firebase Custom Login](https://www.firebase.com/docs/web/guide/simple-login/custom.html)
+gives you complete control over user authentication by allowing you to authenticate users
+with secure JSON Web Tokens (JWTs). The auth payload stored in those tokens is available
+for use in your Firebase [security rules](https://www.firebase.com/docs/security/api/rule/).
+This is a token generator library for .Net which allows you to easily create those JWTs.
+
 
 ## Installation
-The easiest way to install is via [NuGet](https://nuget.org/packages/FirebaseTokenGenerator).  Just search 
-for FirebaseTokenGenerator in NuGet or install it via the Package Manager Console:
 
-    PM> Install-Package FirebaseTokenGenerator
+The easiest way to install The Firebase .Net token generator is via NuGet. Just search for
+"FirebaseTokenGenerator" in NuGet or install it via the Package Manager Console:
 
-You can also download the source and compile it yourself, of course!
+```
+PM> Install-Package FirebaseTokenGenerator
+```
 
-## Usage
-To generate a token with an arbitrary auth payload:
-    
-    var tokenGenerator = new Firebase.TokenGenerator("YOUR_FIREBASE_SECRET_HERE");
-    var authPayload = new Dictionary<string, object>()
-    {
-        { "some", "arbitrary" },
-        { "data", "here" }
-    };
-    string token = tokenGenerator.CreateToken(authPayload);
 
-You can also specify custom options via a second argument to CreateToken.  For example, to create an admin token, you could use:
+## A Note About Security
 
-    var tokenGenerator = new Firebase.TokenGenerator("YOUR_FIREBASE_SECRET_HERE");
-    string token = tokenGenerator.CreateToken(null, new Firebase.TokenOptions(admin: true));
+**IMPORTANT:** Because token generation requires your Firebase Secret, you should only generate
+tokens on *trusted servers*. Never embed your Firebase Secret directly into your application and
+never share your Firebase Secret with a connected client.
 
-See the [Firebase Authentication Docs](https://www.firebase.com/docs/security/authentication.html) for more information about authentication tokens.
 
-License
--------
-[MIT](http://firebase.mit-license.org)
+## Generating Tokens
+
+To generate tokens, you'll need your Firebase Secret which you can find by entering your Firebase
+URL into a browser and clicking the "Secrets" tab on the left-hand navigation menu.
+
+Once you've downloaded the library and grabbed your Firebase Secret, you can generate a token with
+this snippet of .Net code:
+
+```
+var tokenGenerator = new Firebase.TokenGenerator("<YOUR_FIREBASE_SECRET>");
+var arbitraryAuthPayload = new Dictionary<string, object>()
+{
+    { "some", "arbitrary" },
+    { "data", "here" }
+};
+string token = tokenGenerator.CreateToken(arbitraryAuthPayload);
+```
+
+The arbitrary payload object passed into `CreateToken()` is then available for use within your
+security rules via the [`auth` variable](https://www.firebase.com/docs/security/api/rule/auth.html).
+This is how you pass trusted authentication details (e.g. the client's user ID) into your
+Firebase rules.
+
+
+## Token Options
+
+A second `options` argument can be passed to `CreateToken()` to modify how Firebase treats the
+token. Available options are:
+
+* **expires** (DateTime) - A timestamp denoting the time after which this token should no longer
+be valid.
+
+* **notBefore** (DateTime) - A timestamp denoting the time before which this token should be
+rejected by the server.
+
+* **admin** (bool) - Set to `true` if you want to disable all security rules for this client. This
+will provide the client with read and write access to your entire Firebase.
+
+* **debug** (bool) - Set to `true` to enable debug output from your security rules. You should
+generally *not* leave this set to `true` in production (as it slows down the rules implementation
+and gives your users visibility into your rules), but it can be helpful for debugging.
+
+Here is an example of how to use the second `options` argument:
+
+```
+var tokenGenerator = new Firebase.TokenGenerator("<YOUR_FIREBASE_SECRET>");
+var arbitraryAuthPayload = new Dictionary<string, object>()
+{
+    { "some", "arbitrary" },
+    { "data", "here" }
+};
+string token = tokenGenerator.CreateToken(arbitraryAuthPayload, new Firebase.TokenOptions(admin: true));
+```
