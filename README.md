@@ -36,8 +36,8 @@ this snippet of .Net code:
 var tokenGenerator = new Firebase.TokenGenerator("<YOUR_FIREBASE_SECRET>");
 var arbitraryAuthPayload = new Dictionary<string, object>()
 {
-    { "some", "arbitrary" },
-    { "data", "here" }
+  { "some", "arbitrary" },
+  { "data", "here" }
 };
 string token = tokenGenerator.CreateToken(arbitraryAuthPayload);
 ```
@@ -72,8 +72,8 @@ Here is an example of how to use the second `options` argument:
 var tokenGenerator = new Firebase.TokenGenerator("<YOUR_FIREBASE_SECRET>");
 var arbitraryAuthPayload = new Dictionary<string, object>()
 {
-    { "some", "arbitrary" },
-    { "data", "here" }
+  { "some", "arbitrary" },
+  { "data", "here" }
 };
 string token = tokenGenerator.CreateToken(arbitraryAuthPayload, new Firebase.TokenOptions(admin: true));
 ```
