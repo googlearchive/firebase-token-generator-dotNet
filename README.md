@@ -34,18 +34,21 @@ this snippet of .Net code:
 
 ```
 var tokenGenerator = new Firebase.TokenGenerator("<YOUR_FIREBASE_SECRET>");
-var arbitraryAuthPayload = new Dictionary<string, object>()
+var authPayload = new Dictionary<string, object>()
 {
+  { "uid", "1" },
   { "some", "arbitrary" },
   { "data", "here" }
 };
-string token = tokenGenerator.CreateToken(arbitraryAuthPayload);
+string token = tokenGenerator.CreateToken(authPayload);
 ```
 
-The arbitrary payload object passed into `CreateToken()` is then available for use within your
+The payload object passed into `CreateToken()` is then available for use within your
 security rules via the [`auth` variable](https://www.firebase.com/docs/security/api/rule/auth.html).
-This is how you pass trusted authentication details (e.g. the client's user ID) into your
-Firebase rules.
+This is how you pass trusted authentication details (e.g. the client's user ID) to your
+Firebase rules. The payload can contain any data of your choosing, however it
+must contain a "uid" key, which must be a string of less than 256 characters. The
+generated token must be less than 1024 characters in total.
 
 
 ## Token Options
@@ -70,10 +73,11 @@ Here is an example of how to use the second `options` argument:
 
 ```
 var tokenGenerator = new Firebase.TokenGenerator("<YOUR_FIREBASE_SECRET>");
-var arbitraryAuthPayload = new Dictionary<string, object>()
+var authPayload = new Dictionary<string, object>()
 {
+  { "uid", "1" },
   { "some", "arbitrary" },
   { "data", "here" }
 };
-string token = tokenGenerator.CreateToken(arbitraryAuthPayload, new Firebase.TokenOptions(admin: true));
+string token = tokenGenerator.CreateToken(authPayload, new Firebase.TokenOptions(admin: true));
 ```
