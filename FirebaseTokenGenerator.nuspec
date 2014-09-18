@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/firebase/firebase-token-generator-dotNet</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <copyright>Copyright 2013</copyright>
+    <copyright>Copyright 2014</copyright>
     <tags>firebase token jwt security authentication</tags>
     <dependencies>
       <dependency id="JWT" version="1.2" />
